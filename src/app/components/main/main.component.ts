@@ -17,13 +17,34 @@ export class MainComponent implements OnInit {
 constructor(private subjectsService: MainService) { }
 
 ngOnInit() {
+  this.subjectsService.allSubject.subscribe((entry: string) => {
+    this.addToAll(entry);
+  });
+  this.subjectsService.letterSubject.subscribe((entry: string) => {
+    this.addToLetters(entry);
+  });
+  this.subjectsService.numberSubject.subscribe((entry: string) => {
+    this.addToNumbers(entry);
+  });
 }
 
-clickEvent(entry: string){
+pushPayloadToSubjects(entry: string){
   //.next each of our subjects
-  this.addToAll(entry);
-  this.addToLetters(entry);
-  this.addToNumbers(entry);
+  //functional way
+  let regExToLettersArray = entry.match(/[a-zA-Z]+/g);
+  console.log(regExToLettersArray);
+  let regExToLettersString: string;
+    console.log(regExToLettersArray[0]);
+    regExToLettersString = regExToLettersArray.toString();
+  let regExtToNumbersArray = entry.match(/[0-9]+/g);
+  let regExToNumbersString = regExtToNumbersArray.toString();
+  this.subjectsService.allSubject.next(entry);
+  this.subjectsService.letterSubject.next(regExToLettersString);
+  this.subjectsService.numberSubject.next(regExToNumbersString);
+  //non functional rxjs way of doing things
+  // this.addToAll(entry);
+  // this.addToLetters(entry);
+  // this.addToNumbers(entry);
 }
 
 addToAll(entry: string) {
