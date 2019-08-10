@@ -12,15 +12,36 @@ export class MainComponent implements OnInit {
   all = [];
   letters = [];
   numbers = [];
-  addToAll(entry: string) {
-    if (entry) {
-      this.all.push(entry);
-    }
-  }
 
-  constructor() { }
 
-  ngOnInit() {
+clickEvent(entry: string){
+  this.addToAll(entry);
+  this.addToLetters(entry);
+  this.addToNumbers(entry);
+}
+
+addToAll(entry: string) {
+  if (entry) {
+    this.all.push(entry);
   }
+}
+
+addToLetters(entry: string) {
+  if (entry) {
+    this.letters.push(entry);
+  }
+}
+
+addToNumbers(entry: string) {
+  if (entry) {
+    this.numbers.push(entry);
+  }
+}
+
+
+constructor() { }
+
+ngOnInit() {
+}
 
 }

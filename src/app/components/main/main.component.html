@@ -1,9 +1,26 @@
-    
-    
-    <input #newHero
-      (keyup.enter)="addHero(newHero.value)"
-      (blur)="addHero(newHero.value); newHero.value='' ">
+<link href="node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
 
-    <button (click)="addHero(newHero.value)">Add</button>
 
-    <ul><li *ngFor="let hero of heroes">{{hero}}</li></ul>
+<h2>{{title}}</h2>
+<h5>{{subTitle}}</h5>
+
+<mat-card class="material-card">
+     <mat-card-header>Enter</mat-card-header>
+    <input #entry>
+    <button (click)="clickEvent(entry.value)">Add</button>
+</mat-card>
+
+<mat-card class="material-card">
+    <mat-card-header>All List</mat-card-header>
+    <ul><li *ngFor="let entry of all">{{entry}}</li></ul>
+</mat-card>
+
+<mat-card class="material-card">
+     <mat-card-header>Number List</mat-card-header>
+    <ul><li *ngFor="let entry of numbers">{{entry}}</li></ul>
+</mat-card>
+
+<mat-card class="material-card">
+    <mat-card-header>Letter List</mat-card-header>
+    <ul><li *ngFor="let entry of letters">{{entry}}</li></ul>
+</mat-card>
