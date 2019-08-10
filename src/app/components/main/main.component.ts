@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../../services/main.service';
 
 @Component({
   selector: 'app-main',
@@ -13,8 +14,13 @@ export class MainComponent implements OnInit {
   letters = [];
   numbers = [];
 
+constructor(private subjectsService: MainService) { }
+
+ngOnInit() {
+}
 
 clickEvent(entry: string){
+  //.next each of our subjects
   this.addToAll(entry);
   this.addToLetters(entry);
   this.addToNumbers(entry);
@@ -39,9 +45,6 @@ addToNumbers(entry: string) {
 }
 
 
-constructor() { }
 
-ngOnInit() {
-}
 
 }
