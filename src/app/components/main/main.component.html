@@ -5,13 +5,11 @@
 <h5>{{subTitle}}</h5>
 
 <mat-card class="material-card">
-     <mat-card-header>Enter</mat-card-header>
     <input #entry>
     <button (click)="pushPayloadToSubjects(entry.value)">Add</button>
-</mat-card>
 
 <mat-card class="material-card">
-    <mat-card-header>All List</mat-card-header>
+    <mat-card-header>Numbers + Letters List</mat-card-header>
     <ul><li *ngFor="let entry of all">{{entry}}</li></ul>
 </mat-card>
 
@@ -23,4 +21,6 @@
 <mat-card class="material-card">
     <mat-card-header>Letter List</mat-card-header>
     <ul><li *ngFor="let entry of letters">{{entry}}</li></ul>
+</mat-card>
+
 </mat-card>

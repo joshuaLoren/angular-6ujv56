@@ -33,14 +33,21 @@ pushPayloadToSubjects(entry: string){
   //functional way
   let regExToLettersArray = entry.match(/[a-zA-Z]+/g);
   console.log(regExToLettersArray);
+  if(regExToLettersArray){
   let regExToLettersString: string;
-    console.log(regExToLettersArray[0]);
     regExToLettersString = regExToLettersArray.toString();
+      this.subjectsService.letterSubject.next(regExToLettersString);
+  }
   let regExtToNumbersArray = entry.match(/[0-9]+/g);
-  let regExToNumbersString = regExtToNumbersArray.toString();
+  if (regExtToNumbersArray) {
+   let regExToNumbersString = 
+   regExtToNumbersArray.toString();
+    this.subjectsService.numberSubject.next(regExToNumbersString);
+  }
+
   this.subjectsService.allSubject.next(entry);
-  this.subjectsService.letterSubject.next(regExToLettersString);
-  this.subjectsService.numberSubject.next(regExToNumbersString);
+
+
   //non functional rxjs way of doing things
   // this.addToAll(entry);
   // this.addToLetters(entry);
